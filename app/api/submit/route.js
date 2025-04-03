@@ -1,6 +1,5 @@
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
-import credentials from "@/psyched-zone-386408-6b11eb825912.json"; // Place your JSON key in `/src` and import it
 
 const credentials = JSON.parse(
   Buffer.from(process.env.GOOGLE_CREDENTIALS_BASE64, "base64").toString()
