@@ -35,7 +35,7 @@ function HeroSection() {
 
 
     const handleDownloadResume = () => {
-        const resumeLink = "https://drive.google.com/file/d/1OH3KBmot6OyJh842sfIg1kJq-HPMd65C/view?usp=sharing"; // Replace with your actual Google Drive link
+        const resumeLink = process.env.RESUME_LINK  ?? ""; // Replace with your actual Google Drive link
         const link = document.createElement("a");
         link.href = resumeLink;
         link.target = "_blank"; // Opens in a new tab
@@ -99,26 +99,26 @@ function HeroSection() {
             href: "",
         },
         {
-            title: "Components",
+            title: "",
             icon: (
                 <IconNewSection className="h-full w-full text-black dark:text-neutral-300" />
             ),
             href: "#",
         },
 
-        {
-            title: "Changelog",
-            icon: (
-                <IconExchange className="h-full w-full text-black dark:text-neutral-300" />
-            ),
-            href: "#",
-        },
+        // {
+        //     title: "Changelog",
+        //     icon: (
+        //         <IconExchange className="h-full w-full text-black dark:text-neutral-300" />
+        //     ),
+        //     href: "#",
+        // },
 
 
     ];
 
 
-    const companyTagline = [" a Fullstack Developer.", "a Frontend Engineer.", "A.I Learner.", " a PolyMaths."]
+    const companyTagline = [" a Fullstack Developer.","a Flutter Developer" ,"a Frontend Engineer.", "A.I Learner.", " a PolyMaths."]
     return (
         <>
             <div id='page1' className="w-full --md:h-[100vh] text-center  bg-[#010228] pb-1 pt-20">

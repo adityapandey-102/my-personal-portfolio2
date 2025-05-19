@@ -19,6 +19,14 @@ export default ProjectsSection
 
 export const projects = [
   {
+    "title": "LifeTrek – A Flutter Social Media App like Instagram",
+    "short_description": "LifeTrek is a Flutter-based social media app with login, posts, profile updates, comments, user search, dark mode, and responsive web UI.",
+    "full_description": "LifeTrek is a modern social media app built with Flutter that replicates core features of Instagram, offering a seamless user experience across mobile and web platforms.\\n\\n✨ Features:\\n\\n 🔐 User Authentication (Login / Registration) – Firebase Auth\\n 📸 Add, Delete Posts with Captions – Firebase Firestore + Cloudinary for media\\n 👤 Profile Updates – Change profile picture, bio, and view stats\\n 💬 Comment System – Add/Delete comments\\n 🌙 Light/Dark Theme Switch\\n 🔍 Search Users by Name\\n 🌐 Fully Responsive – Mobile + Web UI\\n\\n🧠 Architecture & Stack:\\n\\nFlutter with Cubit for state management\\nClean Architecture for scalable and maintainable code\\nFirebase Authentication & Cloud Firestore for backend\\nCloudinary* for media hosting\\nFully Responsive UI using Flutter's layout tools",
+    "image_url": "",
+    "gitHubUrl": "https://github.com/adityapandey-102/Life-Trek-Social-Media-App",
+    "host_serverUrl": "https://socialmediaapp-d4ef7.web.app"
+  },
+  {
     "title": "YourCart - E-commerce Website (MERN App)",
     "short_description": "Developed a feature-rich e-commerce platform with authentication, product listings, filters, cart, and wishlist management.",
     "full_description": "Developed a feature-rich e-commerce website with user authentication for secure data management, product listings, filters, and cart and wishlist management. Designed an intuitive user interface, including responsive design and search functionality. Implemented advanced filtering options, including price range, category, customer ratings, and product availability. Utilized technologies like React, Redux Toolkit, Tailwind, and MongoDB for seamless user experiences. Demonstrated strong web development skills and problem-solving abilities.",

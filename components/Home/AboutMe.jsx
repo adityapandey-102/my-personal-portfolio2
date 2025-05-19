@@ -22,14 +22,17 @@ function AboutMe() {
                             🚀 Building Scalable, Intelligent, and Future-Ready Software
                         </h2>
                         <p className="text-gray-500 leading-relaxed">
-                            I am <strong>Aditya Pandey</strong>, a <strong>Full-Stack Developer</strong> passionate about crafting high-performance applications that blend innovation, efficiency, and seamless user experiences. My expertise lies in <strong>React.js, Next.js, Node.js, and scalable architectures</strong>, allowing me to build cutting-edge solutions that push technological boundaries.
+                            I am <strong>Aditya Pandey</strong>, a <strong>Full-Stack & Cross-Platform Mobile App Developer</strong> passionate about crafting high-performance applications that blend innovation, efficiency, and seamless user experiences. I specialize in <strong>React.js, Next.js, Node.js, and Flutter</strong>, enabling me to build modern, scalable web and mobile solutions across platforms.
                             <br /><br />
-                            With a deep understanding of frontend and backend ecosystems, I have successfully migrated applications to Next.js, optimized website performance, and integrated AI-powered solutions. From enhancing UI/UX to automating workflows using OpenAI, I thrive on solving complex challenges with precision and creativity.
+                            With a deep understanding of both frontend and backend ecosystems, I've built e-commerce platforms, social media apps, and finance tools using clean architecture principles and modern UI/UX practices. I've migrated web apps to Next.js for improved SEO and performance, and developed cross-platform mobile apps in Flutter with integrated Firebase and advanced state management like Bloc and Cubit.
                             <br /><br />
-                            Beyond coding, I am constantly learning, exploring AI, finance tech, and robotics, and refining my problem-solving skills. My goal is to build intelligent, scalable systems that redefine user experiences and drive impact.
+                            From optimizing load times and automating workflows using OpenAI APIs, to implementing role-based authentication and data-driven dashboards, I thrive on solving complex problems with precision and creativity.
+                            <br /><br />
+                            Beyond coding, I’m constantly learning—exploring AI, finance tech, and robotics—while sharpening my problem-solving mindset. My mission is to create intelligent, scalable systems that elevate user experiences and drive real-world impact.
                             <br /><br />
                             🚀 <strong>Eager to bring my skills to your team?</strong> <Link href="#contact" className="text-blue-600 font-semibold hover:underline">Let’s connect</Link> and explore how we can achieve greatness together!
                         </p>
+
                     </div>
 
                 </div>
