@@ -35,7 +35,7 @@ function HeroSection() {
 
 
     const handleDownloadResume = () => {
-        const resumeLink = process.env.RESUME_LINK  ?? ""; // Replace with your actual Google Drive link
+        const resumeLink = process.env.NEXT_PUBLIC_RESUME_LINK; // Replace with your actual Google Drive link
         const link = document.createElement("a");
         link.href = resumeLink;
         link.target = "_blank"; // Opens in a new tab

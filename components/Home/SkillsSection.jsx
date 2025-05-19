@@ -46,7 +46,7 @@ function SkillsSection() {
             { name: "Figma", src: "/picture/skill_icons/figma.webp" },
             { name: "AceternityUI", src: "/picture/skill_icons/AceternityUI.png" },
             { name: "MaterialUI", src: "/picture/skill_icons/material-ui-1.svg" },
-            { name: "ShadcnUI", src: "/picture/skill_icons/shadcnUI.svg" },
+            // { name: "ShadcnUI", src: "/picture/skill_icons/shadcnUI.svg" },
         ]
     }
 
