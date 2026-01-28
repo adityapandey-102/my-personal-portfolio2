@@ -12,31 +12,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Aditya Pandey | MERN Stack Developer & UI/UX Designer",
-  description: "Expert MERN stack developer specializing in scalable web applications, UI/UX design, and AI-driven solutions. Get top-notch website development services tailored for startups and enterprises.",
-  keywords: "MERN stack developer, Next.js expert, UI/UX design, scalable web applications, AI-driven solutions, website development, software engineering",
+  title: "Aditya Pandey | Full Stack Developer",
+  description: "Full Stack Developer building scalable backend systems and clean web applications. Experience with Node.js, Express, PostgreSQL, and modern frontend frameworks.",
+  keywords: "Full Stack Developer, Node.js, Express, React, Next.js, PostgreSQL, REST API, backend developer",
   author: "Aditya Pandey",
   robots: "index, follow",
-  openGraph: {
-    title: "Aditya Pandey | MERN Stack Developer & UI/UX Designer",
-    description: "Building high-performance web applications with cutting-edge technologies like Next.js, AI integration, and modern UI/UX design.",
-    url: "https://yourwebsite.com", // Replace with your actual URL
-    type: "website",
-    images: [
-      {
-        url: "https://yourwebsite.com/og-image.jpg", // Replace with an actual Open Graph image URL
-        width: 1200,
-        height: 630,
-        alt: "Aditya Pandey - MERN Stack Developer",
-      },
+  icons: {
+    icon: [
+      { url: "/favicon/favicon.ico", sizes: "any" },
+      { url: "/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
+    apple: "/favicon/apple-touch-icon.png",
+    android: [
+      { url: "/favicon/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+  },
+  manifest: "/favicon/site.webmanifest",
+  openGraph: {
+    title: "Aditya Pandey | Full Stack Developer",
+    description: "Building scalable backend systems and clean, reliable web applications.",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourTwitterHandle", // Replace with your actual Twitter handle
-    title: "Aditya Pandey | MERN Stack Developer & UI/UX Designer",
-    description: "Providing scalable web solutions with expertise in MERN stack, UI/UX design, and AI-powered development.",
-    images: ["https://yourwebsite.com/twitter-image.jpg"], // Replace with an actual image URL
+    title: "Aditya Pandey | Full Stack Developer",
+    description: "Full Stack Developer with experience in Node.js, Express, PostgreSQL, and modern frontend frameworks.",
   },
 };
 

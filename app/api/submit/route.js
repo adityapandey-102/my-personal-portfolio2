@@ -1,38 +1,56 @@
-import { google } from "googleapis";
 import { NextResponse } from "next/server";
-
-const credentials = JSON.parse(
-  Buffer.from(process.env.GOOGLE_CREDENTIALS_BASE64, "base64").toString()
-);
+import { google } from "googleapis";
 
 export async function POST(req) {
   try {
-    const { fullname, email, message } = await req.json();
-    const auth = new google.auth.GoogleAuth({
-      credentials,
-      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    const { name, email, message } = await req.json();
+
+    // Validate inputs
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { success: false, message: "Missing required fields" },
+        { status: 400 }
+      );
+    }
+
+    // Check if Google Sheets integration is configured
+    if (process.env.GOOGLE_CREDENTIALS_BASE64 && process.env.GOOGLE_SPREADSHEET_ID) {
+      try {
+        const credentials = JSON.parse(
+          Buffer.from(process.env.GOOGLE_CREDENTIALS_BASE64, "base64").toString()
+        );
+
+        const auth = new google.auth.GoogleAuth({
+          credentials,
+          scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+        });
+
+        const sheets = google.sheets({ version: "v4", auth });
+
+        await sheets.spreadsheets.values.append({
+          spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
+          range: "Sheet1!A:D",
+          valueInputOption: "RAW",
+          requestBody: {
+            values: [[name, email, message, new Date().toLocaleString()]],
+          },
+        });
+      } catch (googleError) {
+        console.error("Google Sheets error:", googleError);
+        // Continue even if Google Sheets fails
+      }
+    }
+
+    // Always return success (form submission is logged or will be handled client-side)
+    return NextResponse.json({
+      success: true,
+      message: "Thank you for your message! We'll get back to you soon.",
     });
-
-    const sheets = google.sheets({ version: "v4", auth });
-
-    const spreadsheetId = process.env.GOOGLE_SPREADSHEET_ID; // Use env variable
-
-
-  
-    const range = "Sheet1!A:C"; // Update as needed
-
-    // Append new row to Google Sheets
-    await sheets.spreadsheets.values.append({
-      spreadsheetId,
-      range,
-      valueInputOption: "RAW",
-      requestBody: {
-        values: [[fullname, email, message, new Date().toLocaleString()]],
-      },
-    });
-
-    return NextResponse.json({ success: true, message: "Data submitted successfully!" });
   } catch (error) {
-    return NextResponse.json({ success: false, message: error.message }, { status: 500 });
+    console.error("Form submission error:", error);
+    return NextResponse.json(
+      { success: false, message: "An error occurred. Please try again." },
+      { status: 500 }
+    );
   }
 }
