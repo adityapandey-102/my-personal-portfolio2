@@ -33,13 +33,15 @@ export default function ResumeRequestModal({ open, onClose }) {
       body: JSON.stringify(form),
     });
 
+    const data = await res.json();
+
     setLoading(false);
 
     if (res.ok) {
       alert("Resume sent to your email ✅");
       onClose();
     } else {
-      alert("Failed to send resume");
+      alert(data.message);
     }
   };
 

@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-const RATE_LIMIT_TIME = 10 * 60 * 1000;
+const RATE_LIMIT_TIME = 5 * 60 * 1000;
 const ipStore = new Map();
 
 function isValidEmail(email) {
@@ -26,26 +26,23 @@ function isRateLimited(ip) {
 
 export async function POST(req) {
   try {
-    const body = await req.json();
-    const { email } = body;
+    const { name, email, company, purpose } = await req.json();
 
     if (!email || !isValidEmail(email)) {
       return new Response(
         JSON.stringify({ message: "Invalid email address" }),
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    const ip =
-      req.headers.get("x-forwarded-for") ||
-      "unknown";
+    const ip = req.headers.get("x-forwarded-for") || "unknown";
 
     if (isRateLimited(ip)) {
       return new Response(
         JSON.stringify({
-          message: "Please wait 10 minutes before requesting again",
+          message: "Please wait 5 minutes before requesting again",
         }),
-        { status: 429 }
+        { status: 429 },
       );
     }
 
@@ -64,25 +61,40 @@ export async function POST(req) {
       to: email,
       subject: "Resume – Aditya Pandey",
       html: `
-        <p>Hello,</p>
+        <p>Hi ${name},</p>
         <p>Thank you for your interest.</p>
-        <p>You can download my resume here:</p>
-        <a href="${process.env.NEXT_PUBLIC_RESUME_LINK}">
-          Download Resume
-        </a>
+        <p>Please find my resume attached.</p>
         <br/><br/>
         <p>Regards,<br/>Aditya Pandey</p>
       `,
+      attachments: [
+        {
+          filename: "Aditya_Pandey_Resume.pdf",
+          path: "./public/resume/Aditya_Pandey_Resume.pdf",
+        },
+      ],
+    });
+
+    // SEND YOU LEAD INFO
+    await transporter.sendMail({
+      from: `"Portfolio Alert" <${process.env.SMTP_USER}>`,
+      to: process.env.SMTP_USER,
+      subject: "New Resume Request",
+      text: `
+Name: ${name}
+Email: ${email}
+Company: ${company}
+Purpose: ${purpose}
+`,
     });
 
     return new Response(
       JSON.stringify({ message: "Resume sent successfully" }),
-      { status: 200 }
+      { status: 200 },
     );
   } catch (err) {
-    return new Response(
-      JSON.stringify({ message: "Something went wrong" }),
-      { status: 500 }
-    );
+    return new Response(JSON.stringify({ message: "Something went wrong" }), {
+      status: 500,
+    });
   }
 }
