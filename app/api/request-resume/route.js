@@ -1,8 +1,12 @@
 import nodemailer from "nodemailer";
+import fs from "fs";
+import path from "path";
+
 
 const RATE_LIMIT_TIME = 5 * 60 * 1000;
 const ipStore = new Map();
 
+const filePath = path.join(process.cwd(), "public/resume/Aditya_Pandey_Resume.pdf");
 function isValidEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
@@ -70,7 +74,7 @@ export async function POST(req) {
       attachments: [
         {
           filename: "Aditya_Pandey_Resume.pdf",
-          path: "./public/resume/Aditya_Pandey_Resume.pdf",
+          content: fs.readFileSync(filePath),
         },
       ],
     });
