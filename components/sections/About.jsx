@@ -24,10 +24,10 @@ export default function About() {
 
           {/* LEFT — PROFILE IMAGE */}
           <div className="flex justify-center md:justify-start">
-            <div className="relative w-64 h-64 rounded-2xl overflow-hidden border border-white/10 bg-[#111111]">
+            <div className="relative w-64 h-64 rounded-2xl-- rounded-full overflow-hidden border border-white/10 bg-[#111111]">
               {/* Replace src with your image later */}
               <Image
-                src="/picture/Profile_Photo.jpg"
+                src="/picture/Profile_Photo.png"
                 alt="Aditya Pandey"
                 fill
                 className="object-cover"
